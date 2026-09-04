@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CodeKids - Coding Snake</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <canvas id="bg-canvas"></canvas>
+
+    <nav>
+        <h2>CodeKids</h2>
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Games.html">Games</a></li>
+            <li><a href="Activities.html">Activities</a></li>
+        </ul>
+    </nav>
+
+
+    <section class="snake-page">
+
+        <h1>🐍 Coding Snake Game</h1>
+
+        <p class="game-info">
+            Collect coding words: HTML, CSS and JS!
+        </p>
+
+        <div class="game-panel">
+
+            <div class="score-board">
+                Score: <span id="score">0</span>
+            </div>
+
+            <canvas id="snakeCanvas" width="500" height="500"></canvas>
+
+            <p class="controls">
+                Use Arrow Keys ⬆️ ⬇️ ⬅️ ➡️
+            </p>
+
+            <button id="restartBtn">Restart Game</button>
+
+        </div>
+
+    </section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="bg3d.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

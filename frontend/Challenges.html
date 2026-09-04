@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CodeKids - Challenges</title>
+
+    <link rel="stylesheet" href="Challenges.css">
+</head>
+
+<body>
+    <canvas id="bg-canvas"></canvas>
+    
+
+    
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="hero-icon">🧩</div>
+
+            <h1>Challenges</h1>
+
+            <p>
+                Test your coding skills, solve fun challenges
+                and earn points! 🚀
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SCORE ================= -->
+
+    <section class="score-section">
+
+        <div class="score-box">
+            <span>🏆</span>
+            <h3>Your Score</h3>
+            <strong id="score">0</strong>
+        </div>
+
+        <div class="score-box">
+            <span>🔥</span>
+            <h3>Streak</h3>
+            <strong id="streak">0</strong>
+        </div>
+
+        <div class="score-box">
+            <span>✅</span>
+            <h3>Solved</h3>
+            <strong id="solved">0</strong>
+        </div>
+
+    </section>
+
+
+    <!-- ================= FILTER ================= -->
+
+    <section class="challenge-section">
+
+        <h2>Choose Your Challenge 🎯</h2>
+
+        <p class="subtitle">
+            Select a level and start coding!
+        </p>
+
+        <div class="filter-buttons">
+
+            <button onclick="filterChallenges('all')" class="active">
+                🌟 All
+            </button>
+
+            <button onclick="filterChallenges('easy')">
+                🟢 Easy
+            </button>
+
+            <button onclick="filterChallenges('medium')">
+                🟡 Medium
+            </button>
+
+            <button onclick="filterChallenges('hard')">
+                🔴 Hard
+            </button>
+
+        </div>
+
+
+        <!-- ================= CHALLENGES ================= -->
+
+        <div class="challenge-grid">
+
+
+            <!-- Challenge 1 -->
+
+            <div class="challenge-card easy">
+
+                <div class="card-top">
+                    <span class="challenge-number">01</span>
+                    <span class="difficulty easy-text">Easy</span>
+                </div>
+
+                <div class="challenge-icon">👋</div>
+
+                <h3>Hello World</h3>
+
+                <p>
+                    Write a program that prints
+                    "Hello World".
+                </p>
+
+                <div class="points">⭐ 10 Points</div>
+
+                <button class="start-btn"
+                    onclick="startChallenge(1)">
+                    Start Challenge
+                </button>
+
+            </div>
+
+
+            <!-- Challenge 2 -->
+
+            <div class="challenge-card easy">
+
+                <div class="card-top">
+                    <span class="challenge-number">02</span>
+                    <span class="difficulty easy-text">Easy</span>
+                </div>
+
+                <div class="challenge-icon">➕</div>
+
+                <h3>Add Two Numbers</h3>
+
+                <p>
+                    Create a program to add
+                    two numbers.
+                </p>
+
+                <div class="points">⭐ 10 Points</div>
+
+                <button class="start-btn"
+                    onclick="startChallenge(2)">
+                    Start Challenge
+                </button>
+
+            </div>
+
+
+            <!-- Challenge 3 -->
+
+            <div class="challenge-card easy">
+
+                <div class="card-top">
+                    <span class="challenge-number">03</span>
+                    <span class="difficulty easy-text">Easy</span>
+                </div>
+
+                <div class="challenge-icon">🔢</div>
+
+                <h3>Even or Odd</h3>
+
+                <p>
+                    Check whether a number
+                    is even or odd.
+                </p>
+
+                <div class="points">⭐ 10 Points</div>
+
+                <button class="start-btn"
+                    onclick="startChallenge(3)">
+                    Start Challenge
+                </button>
+
+            </div>
+
+
+            <!-- Challenge 4 -->
+
+            <div class="challenge-card easy">
+
+                <div class="card-top">
+                    <span class="challenge-number">04</span>
+                    <span class="difficulty easy-text">Easy</span>
+                </div>
+
+                <div class="challenge-icon">🔍</div>
+
+                <h3>Largest Number</h3>
+
+                <p>
+                    Find the largest number
+                    from three numbers.
+                </p>
+
+                <div class="points">⭐ 10 Points</div>
+
+                <button class="start-btn"
+                    onclick="startChallenge(4)">
+                    Start Challenge
+                </button>
+
+            </div>
+
+
+            <!-- Challenge 5 -->
+
+            <div class="challenge-card medium">
+
+                <div class="card-top">
+                    <span class="challenge-number">05</span>
+                    <span class="difficulty medium-text">Medium</span>
+                </div>
+
+                <div class="challenge-icon">✖️</div>
+
+                <h3>Multiplication Table</h3>
+
+                <p>
+                    Create a multiplication
+                    table of a number.
+                </p>
+
+                <div class="points">⭐ 20 Points</div>
+
+                <button class="start-btn"
+                    onclick="startChallenge(5)">
+                    Start Challenge
+                </button>
+
+            </div>
+
+
+            <!-- Challenge 6 -->
+
+            <div class="challenge-card medium">
+
+                <div class="card-top">
+                    <span class="challenge-number">06</span>
+                    <span class="difficulty medium-text">Medium</span>
+                </div>
+
+                <div class="challenge-icon">🔄</div>
+
+                <h3>Reverse a Number</h3>
+
+                <p>
+                    Write a program to reverse
+                    a given number.
+                </p>
+
+                <div class="points">⭐ 20 Points</div>
+
+                <button class="start-btn"
+                    onclick="startChallenge(6)">
+                    Start Challenge
+                </button>
+
+            </div>
+
+
+            <!-- Challenge 7 -->
+
+            <div class="challenge-card medium">
+
+                <div class="card-top">
+                    <span class="challenge-number">07</span>
+                    <span class="difficulty medium-text">Medium</span>
+                </div>
+
+                <div class="challenge-icon">🔤</div>
+
+                <h3>Count Vowels</h3>
+
+                <p>
+                    Count the number of vowels
+                    in a word.
+                </p>
+
+                <div class="points">⭐ 20 Points</div>
+
+                <button class="start-btn"
+                    onclick="startChallenge(7)">
+                    Start Challenge
+                </button>
+
+            </div>
+
+
+            <!-- Challenge 8 -->
+
+            <div class="challenge-card medium">
+
+                <div class="card-top">
+                    <span class="challenge-number">08</span>
+                    <span class="difficulty medium-text">Medium</span>
+                </div>
+
+                <div class="challenge-icon">🔢</div>
+
+                <h3>Factorial</h3>
+
+                <p>
+                    Find the factorial of
+                    a given number.
+                </p>
+
+                <div class="points">⭐ 20 Points</div>
+
+                <button class="start-btn"
+                    onclick="startChallenge(8)">
+                    Start Challenge
+                </button>
+
+            </div>
+
+
+            <!-- Challenge 9 -->
+
+            <div class="challenge-card hard">
+
+                <div class="card-top">
+                    <span class="challenge-number">09</span>
+                    <span class="difficulty hard-text">Hard</span>
+                </div>
+
+                <div class="challenge-icon">🔢</div>
+
+                <h3>Prime Number</h3>
+
+                <p>
+                    Check whether a number
+                    is a prime number.
+                </p>
+
+                <div class="points">⭐ 30 Points</div>
+
+                <button class="start-btn"
+                    onclick="startChallenge(9)">
+                    Start Challenge
+                </button>
+
+            </div>
+
+
+            <!-- Challenge 10 -->
+
+            <div class="challenge-card hard">
+
+                <div class="card-top">
+                    <span class="challenge-number">10</span>
+                    <span class="difficulty hard-text">Hard</span>
+                </div>
+
+                <div class="challenge-icon">🔢</div>
+
+                <h3>Fibonacci Series</h3>
+
+                <p>
+                    Create the Fibonacci series
+                    using JavaScript.
+                </p>
+
+                <div class="points">⭐ 30 Points</div>
+
+                <button class="start-btn"
+                    onclick="startChallenge(10)">
+                    Start Challenge
+                </button>
+
+            </div>
+
+
+            <!-- Challenge 11 -->
+
+            <div class="challenge-card hard">
+
+                <div class="card-top">
+                    <span class="challenge-number">11</span>
+                    <span class="difficulty hard-text">Hard</span>
+                </div>
+
+                <div class="challenge-icon">🎯</div>
+
+                <h3>Number Guessing</h3>
+
+                <p>
+                    Create a game where the
+                    user guesses a number.
+                </p>
+
+                <div class="points">⭐ 30 Points</div>
+
+                <button class="start-btn"
+                    onclick="startChallenge(11)">
+                    Start Challenge
+                </button>
+
+            </div>
+
+
+            <!-- Challenge 12 -->
+
+            <div class="challenge-card hard">
+
+                <div class="card-top">
+                    <span class="challenge-number">12</span>
+                    <span class="difficulty hard-text">Hard</span>
+                </div>
+
+                <div class="challenge-icon">🕵️</div>
+
+                <h3>Find the Bug</h3>
+
+                <p>
+                    Find and fix the error
+                    in the given code.
+                </p>
+
+                <div class="points">⭐ 30 Points</div>
+
+                <button class="start-btn"
+                    onclick="startChallenge(12)">
+                    Start Challenge
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= MODAL ================= -->
+
+    <div id="challengeModal" class="modal">
+
+        <div class="modal-content">
+
+            <button class="close-btn"
+                onclick="closeChallenge()">
+                ×
+            </button>
+
+            <div class="modal-icon" id="modalIcon">
+                🧩
+            </div>
+
+            <h2 id="modalTitle">
+                Challenge
+            </h2>
+
+            <p id="modalQuestion">
+                Question
+            </p>
+
+
+            <div class="editor-title">
+                💻 Write Your Code
+            </div>
+
+            <textarea
+                id="codeInput"
+                placeholder="// Write your JavaScript code here..."></textarea>
+
+
+            <div class="modal-buttons">
+
+                <button class="check-btn"
+                    onclick="checkAnswer()">
+                    ✅ Check Answer
+                </button>
+
+                <button class="hint-btn"
+                    onclick="showHint()">
+                    💡 Hint
+                </button>
+
+            </div>
+
+
+            <div id="result"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+        <p>
+            © 2026 CodeKids | Learn • Code • Challenge • Win 🏆
+        </p>
+    </footer>
+
+
+    <script src="Challenges.js"></script>
+    <script src="bg3d.js"></script>
+
+</body>
+
+</html>
