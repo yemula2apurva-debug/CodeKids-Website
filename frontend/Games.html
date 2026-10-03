@@ -41,9 +41,30 @@
 
             <canvas id="snakeCanvas" width="500" height="500"></canvas>
 
-            <p class="controls">
-                Use Arrow Keys ⬆️ ⬇️ ⬅️ ➡️
-            </p>
+            <!--🎮Game Controls-->
+           <div class="game-controls">
+
+    <button class="control-btn" onclick="changeDirection('UP')">
+        ⬆️
+    </button>
+
+    <div class="middle-controls">
+
+        <button class="control-btn" onclick="changeDirection('LEFT')">
+            ⬅️
+        </button>
+
+        <button class="control-btn" onclick="changeDirection('DOWN')">
+            ⬇️
+        </button>
+
+        <button class="control-btn" onclick="changeDirection('RIGHT')">
+            ➡️
+        </button>
+
+    </div>
+
+</div>
 
             <button id="restartBtn">Restart Game</button>
 
@@ -51,9 +72,15 @@
 
     </section>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="bg3d.js"></script>
-<script src="script.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="bg3d.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
+
+            
+
+
+            

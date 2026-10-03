@@ -31,13 +31,39 @@ const scoreText = document.getElementById("score");
 
 const codingWords = ["HTML", "CSS", "JS"];
 
+
+/* =========================
+   CREATE RANDOM FOOD
+========================= */
+
 function randomFood() {
-    return {
-        x: Math.floor(Math.random() * (canvas.width / box)) * box,
-        y: Math.floor(Math.random() * (canvas.height / box)) * box,
-        word: codingWords[Math.floor(Math.random() * codingWords.length)]
-    };
+
+    let newFood;
+
+    do {
+        newFood = {
+            x: Math.floor(Math.random() * (canvas.width / box)) * box,
+            y: Math.floor(Math.random() * (canvas.height / box)) * box,
+            word: codingWords[
+                Math.floor(Math.random() * codingWords.length)
+            ]
+        };
+
+    } while (
+        snake &&
+        snake.some(part =>
+            part.x === newFood.x &&
+            part.y === newFood.y
+        )
+    );
+
+    return newFood;
 }
+
+
+/* =========================
+   START GAME
+========================= */
 
 function startGame() {
 
@@ -49,47 +75,82 @@ function startGame() {
 
     direction = "RIGHT";
 
-    food = randomFood();
-
     score = 0;
 
     scoreText.textContent = score;
 
     clearInterval(game);
 
+    food = randomFood();
+
+    // Immediately draw snake and food
+    drawGame();
+
     game = setInterval(drawGame, 150);
 }
 
-document.addEventListener("keydown", changeDirection);
 
-function changeDirection(event) {
+/* =========================
+   KEYBOARD CONTROLS
+========================= */
 
-    const key = event.key;
+document.addEventListener("keydown", function(event) {
 
-    if (key === "ArrowLeft" && direction !== "RIGHT") {
+    if (event.key === "ArrowLeft") {
+        changeDirection("LEFT");
+    }
+
+    if (event.key === "ArrowUp") {
+        changeDirection("UP");
+    }
+
+    if (event.key === "ArrowRight") {
+        changeDirection("RIGHT");
+    }
+
+    if (event.key === "ArrowDown") {
+        changeDirection("DOWN");
+    }
+
+});
+
+
+/* =========================
+   BUTTON CONTROLS
+========================= */
+
+function changeDirection(newDirection) {
+
+    if (newDirection === "LEFT" && direction !== "RIGHT") {
         direction = "LEFT";
     }
 
-    if (key === "ArrowUp" && direction !== "DOWN") {
+    if (newDirection === "UP" && direction !== "DOWN") {
         direction = "UP";
     }
 
-    if (key === "ArrowRight" && direction !== "LEFT") {
+    if (newDirection === "RIGHT" && direction !== "LEFT") {
         direction = "RIGHT";
     }
 
-    if (key === "ArrowDown" && direction !== "UP") {
+    if (newDirection === "DOWN" && direction !== "UP") {
         direction = "DOWN";
     }
 }
+
+
+/* =========================
+   COLLISION CHECK
+========================= */
 
 function collision(head, body) {
 
     for (let i = 0; i < body.length; i++) {
 
-        if (head.x === body[i].x &&
-            head.y === body[i].y) {
-
+        if (
+            head.x === body[i].x &&
+            head.y === body[i].y
+        ) {
             return true;
         }
     }
@@ -97,14 +158,35 @@ function collision(head, body) {
     return false;
 }
 
+
+/* =========================
+   DRAW GAME
+========================= */
+
 function drawGame() {
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // Clear canvas
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
 
-    // Draw snake
+
+    /* =========================
+       DRAW SNAKE
+    ========================= */
+
     for (let i = 0; i < snake.length; i++) {
 
-        ctx.fillStyle = i === 0 ? "#183d7a" : "#118ceb";
+        if (i === 0) {
+            // Snake head
+            ctx.fillStyle = "#183d7a";
+        } else {
+            // Snake body
+            ctx.fillStyle = "#118ceb";
+        }
 
         ctx.fillRect(
             snake[i].x,
@@ -114,24 +196,44 @@ function drawGame() {
         );
     }
 
-    // Draw coding word
+
+    /* =========================
+       DRAW FOOD
+    ========================= */
+
     ctx.fillStyle = "#ffd43b";
 
-    ctx.fillRect(food.x, food.y, box, box);
+    ctx.fillRect(
+        food.x,
+        food.y,
+        box,
+        box
+    );
 
+
+    // Coding word
     ctx.fillStyle = "#000";
 
-    ctx.font = "bold 10px Arial";
+    ctx.font = "bold 9px Arial";
+
     ctx.textAlign = "center";
+
+    ctx.textBaseline = "middle";
 
     ctx.fillText(
         food.word,
         food.x + box / 2,
-        food.y + 16
+        food.y + box / 2
     );
+
+
+    /* =========================
+       NEW SNAKE POSITION
+    ========================= */
 
     let snakeX = snake[0].x;
     let snakeY = snake[0].y;
+
 
     if (direction === "LEFT") {
         snakeX -= box;
@@ -149,8 +251,17 @@ function drawGame() {
         snakeY += box;
     }
 
-    // Eat coding word
-    if (snakeX === food.x && snakeY === food.y) {
+
+    /* =========================
+       CHECK FOOD
+    ========================= */
+
+    let ateFood =
+        snakeX === food.x &&
+        snakeY === food.y;
+
+
+    if (ateFood) {
 
         score++;
 
@@ -160,15 +271,26 @@ function drawGame() {
 
     } else {
 
+        // Remove tail
         snake.pop();
+
     }
+
+
+    /* =========================
+       CREATE NEW HEAD
+    ========================= */
 
     const newHead = {
         x: snakeX,
         y: snakeY
     };
 
-    // Game over
+
+    /* =========================
+       GAME OVER
+    ========================= */
+
     if (
         snakeX < 0 ||
         snakeY < 0 ||
@@ -179,19 +301,33 @@ function drawGame() {
 
         clearInterval(game);
 
-        alert("Game Over! Your Score: " + score);
+        alert(
+            "Game Over! Your Score: " + score
+        );
 
         return;
     }
 
+
+    /* =========================
+       ADD NEW HEAD
+    ========================= */
+
     snake.unshift(newHead);
 }
 
-document.getElementById("restartBtn").addEventListener(
-    "click",
-    startGame
-);
+
+/* =========================
+   RESTART BUTTON
+========================= */
+
+document
+    .getElementById("restartBtn")
+    .addEventListener("click", startGame);
+
+
+/* =========================
+   START GAME
+========================= */
 
 startGame();
-
-

@@ -367,6 +367,45 @@ nav ul li a:hover {
     }
 }
 
+/* 🎮 Snake Game Controls */
+
+.game-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: 18px;
+    margin-bottom: 10px;
+}
+
+.middle-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.control-btn {
+    width: 55px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    background-color: #183d7a;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: 0.2s;
+}
+
+.control-btn:hover {
+    background-color: #118ceb;
+    transform: scale(1.08);
+}
+
+.control-btn:active {
+    transform: scale(0.92);
+}
+
 /*BASIC CODING STUDY MATERIAL*/
 
 .basic-coding-card {
