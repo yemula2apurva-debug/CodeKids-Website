@@ -71,13 +71,19 @@ app.use(
 
 const db = mysql.createConnection({
 
-    host: "localhost",
+    host: process.env.DB_HOST,
 
-    user: "root",
+    port: Number(process.env.DB_PORT),
 
-    password: "backspace@11745",
+    user: process.env.DB_USER,
 
-    database: "codekids"
+    password: process.env.DB_PASSWORD,
+
+    database: process.env.DB_NAME,
+
+    ssl: {
+        rejectUnauthorized: true
+    }
 
 });
 
