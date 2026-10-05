@@ -91,3 +91,67 @@ button:hover {
     font-weight: bold;
 }
 
+/* =====================================
+   LOGIN SECTION
+===================================== */
+
+#loginForm {
+    margin-top: 20px;
+}
+
+#loginForm label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #222;
+}
+
+#loginForm input {
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+}
+
+#loginForm input:focus {
+    border-color: #1f4b8f;
+}
+
+#loginForm button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background-color: #1f4b8f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#loginForm button:hover {
+    background-color: #16396f;
+}
+
+.register-container hr {
+    margin: 30px 0;
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+.register-container h2 {
+    text-align: center;
+    color: #1f4b8f;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+#loginMessage {
+    text-align: center;
+    margin-top: 12px;
+    font-weight: bold;
+}
