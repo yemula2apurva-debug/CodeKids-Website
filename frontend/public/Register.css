@@ -1,4 +1,7 @@
-/*Register*/
+/* =====================================
+   GENERAL
+===================================== */
+
 * {
     box-sizing: border-box;
 }
@@ -13,55 +16,103 @@ body {
     align-items: center;
 
     min-height: 100vh;
+
+    padding: 30px 15px;
 }
+
+
+/* =====================================
+   MAIN REGISTER CONTAINER
+===================================== */
 
 .register-container {
-    width: 380px;
+    width: 420px;
+    max-width: 100%;
+
     background: white;
 
-    padding: 35px;
+    padding: 35px 40px;
 
-    border-radius: 15px;
+    border-radius: 18px;
 
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
+
+
+/* =====================================
+   CODEKIDS TITLE
+===================================== */
 
 h1 {
     text-align: center;
+
     color: #183d7a;
-    margin-bottom: 10px;
+
+    margin: 0 0 8px;
+
+    font-size: 32px;
 }
 
 .subtitle {
     text-align: center;
+
     color: #666;
-    margin-bottom: 25px;
-}
 
-label {
-    display: block;
-    margin-bottom: 7px;
-
-    font-weight: bold;
-    color: #333;
-}
-
-input {
-    width: 100%;
-
-    padding: 12px;
-    margin-bottom: 18px;
-
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    margin: 0 0 25px;
 
     font-size: 15px;
 }
 
+
+/* =====================================
+   LABELS
+===================================== */
+
+label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-weight: bold;
+
+    color: #333;
+
+    font-size: 14px;
+}
+
+
+/* =====================================
+   INPUTS
+===================================== */
+
+input {
+    width: 100%;
+
+    padding: 12px 13px;
+
+    margin-bottom: 16px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    background: #fff;
+}
+
 input:focus {
     outline: none;
+
     border-color: #118ceb;
+
+    box-shadow: 0 0 0 2px rgba(17, 140, 235, 0.12);
 }
+
+
+/* =====================================
+   REGISTER BUTTON
+===================================== */
 
 button {
     width: 100%;
@@ -69,89 +120,176 @@ button {
     padding: 12px;
 
     border: none;
+
     border-radius: 8px;
 
     background: #183d7a;
+
     color: white;
 
     font-size: 16px;
 
     cursor: pointer;
+
+    transition: 0.3s;
 }
 
 button:hover {
     background: #118ceb;
+
+    transform: translateY(-1px);
 }
+
+
+/* =====================================
+   REGISTER MESSAGE
+===================================== */
 
 #message {
     text-align: center;
 
-    margin-top: 18px;
+    margin: 15px 0 0;
 
     font-weight: bold;
 }
+
 
 /* =====================================
    LOGIN SECTION
 ===================================== */
 
+.login-section {
+    margin-top: 30px;
+
+    padding-top: 5px;
+}
+
+
+/* =====================================
+   OR DIVIDER
+===================================== */
+
+.divider {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin: 25px 0;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background: #ddd;
+}
+
+.divider span {
+    color: #888;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+
+/* =====================================
+   LOGIN TITLE
+===================================== */
+
+.login-section h2 {
+    text-align: center;
+
+    color: #183d7a;
+
+    font-size: 23px;
+
+    margin: 0 0 6px;
+}
+
+.login-subtitle {
+    text-align: center;
+
+    color: #777;
+
+    font-size: 14px;
+
+    margin: 0 0 20px;
+}
+
+
+/* =====================================
+   LOGIN FORM
+===================================== */
+
 #loginForm {
-    margin-top: 20px;
+    margin-top: 0;
 }
 
 #loginForm label {
-    display: block;
-    margin-top: 15px;
-    margin-bottom: 6px;
-    font-weight: bold;
-    color: #222;
+    margin-bottom: 7px;
 }
 
 #loginForm input {
-    width: 100%;
-    padding: 12px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 15px;
-    outline: none;
+    margin-bottom: 16px;
 }
 
-#loginForm input:focus {
-    border-color: #1f4b8f;
+
+/* =====================================
+   LOGIN BUTTON
+===================================== */
+
+#loginForm .login-button {
+    background: #118ceb;
+
+    margin-top: 3px;
 }
 
-#loginForm button {
-    width: 100%;
-    padding: 12px;
-    margin-top: 20px;
-    background-color: #1f4b8f;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
+#loginForm .login-button:hover {
+    background: #183d7a;
 }
 
-#loginForm button:hover {
-    background-color: #16396f;
-}
 
-.register-container hr {
-    margin: 30px 0;
-    border: none;
-    border-top: 1px solid #ddd;
-}
-
-.register-container h2 {
-    text-align: center;
-    color: #1f4b8f;
-    font-size: 22px;
-    margin-bottom: 15px;
-}
+/* =====================================
+   LOGIN MESSAGE
+===================================== */
 
 #loginMessage {
     text-align: center;
-    margin-top: 12px;
+
+    margin-top: 15px;
+
     font-weight: bold;
+
+    font-size: 14px;
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 500px) {
+
+    body {
+        padding: 20px 12px;
+    }
+
+    .register-container {
+        padding: 28px 22px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .login-section h2 {
+        font-size: 21px;
+    }
 }
