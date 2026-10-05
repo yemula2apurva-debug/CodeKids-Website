@@ -1,57 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<hr>
 
-    <title>CodeKids - Register</title>
+<h2>Already have an account?</h2>
 
-    <link rel="stylesheet" href="Register.css">
-</head>
+<form id="loginForm">
 
-<body>
+    <label for="loginEmail">Email</label>
+    <input
+        type="email"
+        id="loginEmail"
+        placeholder="Enter your email"
+        required
+    >
 
-    <div class="register-container">
+    <label for="loginPassword">Password</label>
+    <input
+        type="password"
+        id="loginPassword"
+        placeholder="Enter your password"
+        required
+    >
 
-        <h1>CodeKids</h1>
+    <button type="submit">Login</button>
 
-        <p class="subtitle">Create your account</p>
+</form>
 
-        <form id="registerForm">
-
-            <label for="name">Name</label>
-            <input
-                type="text"
-                id="name"
-                placeholder="Enter your name"
-                required
-            >
-
-            <label for="email">Email</label>
-            <input
-                type="email"
-                id="email"
-                placeholder="Enter your email"
-                required
-            >
-
-            <label for="password">Password</label>
-            <input
-                type="password"
-                id="password"
-                placeholder="Enter your password"
-                required
-            >
-
-            <button type="submit">Register</button>
-
-        </form>
-
-        <p id="message"></p>
-
-    </div>
-
-    <script src="Register.js"></script>
-
-</body>
-</html>
+<p id="loginMessage"></p>

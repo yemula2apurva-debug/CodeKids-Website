@@ -62,3 +62,62 @@ registerForm.addEventListener("submit", async function (event) {
     }
 
 });
+
+// ===============================
+// LOGIN
+// ===============================
+
+const loginForm = document.getElementById("loginForm");
+const loginMessage = document.getElementById("loginMessage");
+
+loginForm.addEventListener("submit", async function (event) {
+
+    event.preventDefault();
+
+    const email = document.getElementById("loginEmail").value;
+    const password = document.getElementById("loginPassword").value;
+
+    try {
+
+        const response = await fetch("/login", {
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                email: email,
+                password: password
+            })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+
+            loginMessage.style.color = "green";
+            loginMessage.textContent = "Login successful! ✅";
+
+            // Home page open
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 1000);
+
+        } else {
+
+            loginMessage.style.color = "red";
+            loginMessage.textContent = data.message;
+
+        }
+
+    } catch (error) {
+
+        console.error(error);
+
+        loginMessage.style.color = "red";
+        loginMessage.textContent = "Server se connection nahi ho raha.";
+
+    }
+
+});
