@@ -1,27 +1,113 @@
-<hr>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<h2>Already have an account?</h2>
+    <title>CodeKids - Register</title>
 
-<form id="loginForm">
+    <link rel="stylesheet" href="Register.css">
+</head>
 
-    <label for="loginEmail">Email</label>
-    <input
-        type="email"
-        id="loginEmail"
-        placeholder="Enter your email"
-        required
-    >
+<body>
 
-    <label for="loginPassword">Password</label>
-    <input
-        type="password"
-        id="loginPassword"
-        placeholder="Enter your password"
-        required
-    >
+    <div class="register-container">
 
-    <button type="submit">Login</button>
+        <!-- =========================
+             REGISTER SECTION
+        ========================== -->
 
-</form>
+        <h1>CodeKids</h1>
 
-<p id="loginMessage"></p>
+        <p class="subtitle">Create your account</p>
+
+        <form id="registerForm">
+
+            <label for="name">Name</label>
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Enter your name"
+                required
+            >
+
+            <label for="email">Email</label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                required
+            >
+
+            <label for="password">Password</label>
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter your password"
+                required
+            >
+
+            <button type="submit">
+                Register
+            </button>
+
+        </form>
+
+        <p id="message"></p>
+
+
+        <!-- =========================
+             LOGIN SECTION
+        ========================== -->
+
+        <div class="login-section">
+
+            <div class="divider">
+                <span>OR</span>
+            </div>
+
+            <h2>Welcome Back! 👋</h2>
+
+            <p class="login-subtitle">
+                Already have an account? Login here
+            </p>
+
+            <form id="loginForm">
+
+                <label for="loginEmail">Email</label>
+
+                <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="Enter your email"
+                    required
+                >
+
+                <label for="loginPassword">Password</label>
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Enter your password"
+                    required
+                >
+
+                <button type="submit" class="login-button">
+                    Login
+                </button>
+
+            </form>
+
+            <p id="loginMessage"></p>
+
+        </div>
+
+    </div>
+
+    <script src="Register.js"></script>
+
+</body>
+</html>
