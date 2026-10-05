@@ -22,7 +22,7 @@ const frontendPath = path.join(
 // =====================================
 
 // http://localhost:5000/
-// open karne par Register Page
+// Open karne par Register Page
 app.get("/", (req, res) => {
 
     res.sendFile(
@@ -82,7 +82,7 @@ const db = mysql.createConnection({
     database: process.env.DB_NAME,
 
     ssl: {
-        rejectUnauthorized: true
+        rejectUnauthorized: false
     }
 
 });
@@ -185,6 +185,85 @@ app.post("/register", (req, res) => {
 
                 userId:
                     result.insertId
+
+            });
+
+        }
+    );
+
+});
+
+// =====================================
+// LOGIN API
+// =====================================
+
+app.post("/login", (req, res) => {
+
+    const {
+        email,
+        password
+    } = req.body;
+
+    const sql = `
+        SELECT * FROM users
+        WHERE email = ? AND password = ?
+    `;
+
+    db.query(
+        sql,
+        [email, password],
+        (err, results) => {
+
+            // =================================
+            // DATABASE ERROR
+            // =================================
+
+            if (err) {
+
+                console.log(err);
+
+                return res.status(500).json({
+
+                    message:
+                        "Login failed"
+
+                });
+
+            }
+
+            // =================================
+            // WRONG EMAIL / PASSWORD
+            // =================================
+
+            if (results.length === 0) {
+
+                return res.status(401).json({
+
+                    message:
+                        "Invalid email or password ❌"
+
+                });
+
+            }
+
+            // =================================
+            // LOGIN SUCCESS
+            // =================================
+
+            res.json({
+
+                message:
+                    "Login successful ✅",
+
+                user: {
+
+                    id: results[0].id,
+
+                    name: results[0].name,
+
+                    email: results[0].email
+
+                }
 
             });
 
